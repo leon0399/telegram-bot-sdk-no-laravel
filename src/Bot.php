@@ -227,7 +227,9 @@ final class Bot
     public function setHttpClientHandler(string|HttpClientInterface $handler): self
     {
         try {
-            $client = is_string($handler) ? $this->getContainer()->make($handler) : $handler;
+            $client = is_string($handler)
+                ? $this->getContainer()->make($handler)
+                : $handler;
 
             $this->api->setHttpClientHandler($client);
         } catch (BindingResolutionException $e) {
